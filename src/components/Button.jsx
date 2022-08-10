@@ -1,9 +1,8 @@
-export const Button = () => {
-    return <button>Add to cart</button>
-};
-export const Button1 = () => {
-    return <button>Login</button>
-};
-export const Button2 = () => {
-    return <button>Register</button>
-};
+function Button({label}){
+    return <button className="border-2 border-orange-500 py-2 px-5 rounded-full text-red-500
+     hover:bg-orange-500 hover:text-white"
+    >{label}</button>
+
+}
+
+export default Button;
