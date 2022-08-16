@@ -22,13 +22,14 @@
 
 // export default App
 
-import TaskManger from './components/TaskManager';
+// import TaskManger from './components/TaskManager';
+import Form from "./components/Form";
 
 
 function App(){
   return (
     <div>
-      <TaskManger/>
+      <Form/>
     </div>
 
   )
