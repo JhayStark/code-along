@@ -1,42 +1,25 @@
-// import Header from "./components/Header";
-// import Button from "./components/Button"
-// import NavBar from "./components/NavBar";
-// import {Image} from "./components/Image";
-// import Practice from "./components/Practice";
-// function App(){
-//   return( 
-//     <div>
-//       {/* <NavBar/>
-//       <Header/>
-//       <Button label="Add to cart"/>
-//       <Button label="Login"/>
-//       <Button label="Register"/> */}
-//       <Practice/>
-      
-
-//       <Image/>
-//     </div>
-  
-//   )
-// }
-
-// export default App
-
-// import TaskManger from './components/TaskManager';
-// import Form from "./components/Form";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import TaskManager from "./components/TaskManager";
+import NavBar from "./components/NavBar";
 import ProductList from "./components/ProductList";
-import Spinner from "./components/Spinner";
 
-
-function App(){
+function App() {
   return (
-    <div>
-      {/* <Form/> */}
-      {/* <TaskManger/> */}
-      <ProductList/>
-    </div>
-
-  )
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/task-manager" element={<TaskManager />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/product-list" element={<ProductList />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
