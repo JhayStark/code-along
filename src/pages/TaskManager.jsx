@@ -27,6 +27,30 @@ function TaskManager() {
     setValue(newTasks);
   };
 
+  const handleCompleted = (id) => {
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          completed: !task.completed,
+        };
+      }
+      return task;
+    });
+    setValue(newTasks);
+  };
+
+  const handleEdit = (id) => {
+    const newTasks = tasks.filter((task) => {
+      if (task.id === id) {
+        setInput(task.text);
+        return false;
+      }
+      return task;
+    });
+    setValue(newTasks);
+  };
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -61,7 +85,13 @@ function TaskManager() {
 
         <div className="space-y-2 overflow-y-auto h-56">
           {tasks.map((task) => (
-            <TaskItem task={task} key={task.id} handleDelete={handleDelete} />
+            <TaskItem
+              task={task}
+              key={task.id}
+              handleDelete={handleDelete}
+              handleCompleted={handleCompleted}
+              handleEdit={handleEdit}
+            />
           ))}
         </div>
       </div>
